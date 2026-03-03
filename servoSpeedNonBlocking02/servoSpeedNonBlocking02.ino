@@ -21,6 +21,7 @@ int cameraPositionChange = 1; // clockwise = Positve value; counterclockwise = N
 
 int cameraShutterStartPosition = 90;
 int cameraShutterEndPosition = 120;
+int cameraShutterPosition = cameraShutterStartPosition;
 
 int shutterSwitchPin = 41;
 bool shutterSwitchState = 0;
@@ -51,10 +52,26 @@ void sweepCamera() {
 }
 
 void readSensors() {
-
+  shutterSwitchState = digitalRead(shutterSwitchPin);
 }
 
 void cameraOneMove() {
-  if (digitalRead)
+  if (shutterSwitchState == 1 && shutterServoActive == 0) {
+    cameraShutterPosition = cameraShutterPostion + 1;
+    cameraShutterServo.write(cameraShutterPosition);
+    shutterServoActive = 1;
+  }
+  if (shutterServoActive && cameraShutterPosition < cameraShutterEndPosition) {
+    if (cameraShutterMoveTimer >= cameraShutterMoveInterval) {
+    cameraShutterMoveTimer = 0; // reset the timer
+    cameraShutterPosition = cameraShutterPostion + 1;
+    cameraShutterServo.write(cameraShutterPosition);
+    }
+  }
+  else {
+    cameraShutterPostion = cameraShutterStartPosition;
+    cameraShutterServo.write(cameraShutterPosition);
+    shutterServoActive = 0;
+  }
 
 }
