@@ -10,7 +10,7 @@ int cameraMovementInterval = 50;
 int cameraPosition = 90;
 int cameraMaxPosition = 170;
 int cameraMinPosition = 10;
-int cameraDirection = 1; // clockwise = 1; counterclockwise = -1
+int cameraPositionChange = 1; // clockwise = Positve value; counterclockwise = Negative value
 
 
 void setup() {
@@ -20,14 +20,18 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  sweepCamera();
 
 }
 
 void sweepCamera() {
   if(cameraMovementTimer >= cameraMovementInterval) {
     cameraMovementTimer = 0; // reset the timer
-
+    if (cameraPosition >= cameraMaxPosition || cameraPostion <= cameraMinPosition) {
+      cameraPositionChange = cameraPositionChange * -1;
+    }
+    cameraPosition = cameraPosition + cameraPositionChange;
+    cameraServo.write(cameraPosition);
   }
 
 }
