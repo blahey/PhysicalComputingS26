@@ -5,7 +5,7 @@ Servo cameraServo;  // create servo object to control a servo
 const int cameraServoPin = 7;
 
 elapsedMillis cameraMovementTimer;
-int cameraMovementInterval = 50;
+int cameraMovementInterval = 30;
 
 int cameraPosition = 90;
 int cameraMaxPosition = 170;
@@ -15,7 +15,7 @@ int cameraPositionChange = 1; // clockwise = Positve value; counterclockwise = N
 
 void setup() {
   Serial.begin(9600);
-  cameraServo.attach(myservoPin);  // attaches the servo on pin 9 to the servo object
+  cameraServo.attach(cameraServoPin);  // attaches the servo on pin 9 to the servo object
 
 }
 
@@ -27,7 +27,7 @@ void loop() {
 void sweepCamera() {
   if(cameraMovementTimer >= cameraMovementInterval) {
     cameraMovementTimer = 0; // reset the timer
-    if (cameraPosition >= cameraMaxPosition || cameraPostion <= cameraMinPosition) {
+    if (cameraPosition >= cameraMaxPosition || cameraPosition <= cameraMinPosition) {
       cameraPositionChange = cameraPositionChange * -1;
     }
     cameraPosition = cameraPosition + cameraPositionChange;
