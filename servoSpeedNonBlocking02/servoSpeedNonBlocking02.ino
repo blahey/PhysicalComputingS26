@@ -4,14 +4,27 @@
 Servo cameraServo;  // create servo object to control a servo
 const int cameraServoPin = 7;
 
+Servo cameraShutterServo;
+const int cameraServoShutterPin = 8;
+
 elapsedMillis cameraMovementTimer;
 int cameraMovementInterval = 60;
+
+elapsedMillis cameraShutterMoveTimer;
+int cameraShutterMoveInterval;
 
 int cameraMaxPosition = 180;
 int cameraMinPosition = 0;
 int cameraPosition = (cameraMaxPosition + cameraMinPosition) / 2;
 
 int cameraPositionChange = 1; // clockwise = Positve value; counterclockwise = Negative value
+
+int cameraShutterStartPosition = 90;
+int cameraShutterEndPosition = 120;
+
+int shutterSwitchPin = 41;
+bool shutterSwitchState = 0;
+bool shutterServoActive = 0;
 
 
 void setup() {
@@ -22,6 +35,7 @@ void setup() {
 
 void loop() {
   sweepCamera();
+  readSensors();
   cameraOneMove();
 }
 
@@ -36,6 +50,11 @@ void sweepCamera() {
   }
 }
 
+void readSensors() {
+
+}
+
 void cameraOneMove() {
-  
+  if (digitalRead)
+
 }
