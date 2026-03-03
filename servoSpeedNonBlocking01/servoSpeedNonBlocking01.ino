@@ -5,11 +5,12 @@ Servo cameraServo;  // create servo object to control a servo
 const int cameraServoPin = 7;
 
 elapsedMillis cameraMovementTimer;
-int cameraMovementInterval = 30;
+int cameraMovementInterval = 60;
 
-int cameraPosition = 90;
-int cameraMaxPosition = 170;
-int cameraMinPosition = 10;
+int cameraMaxPosition = 180;
+int cameraMinPosition = 0;
+int cameraPosition = (cameraMaxPosition + cameraMinPosition) / 2;
+
 int cameraPositionChange = 1; // clockwise = Positve value; counterclockwise = Negative value
 
 
