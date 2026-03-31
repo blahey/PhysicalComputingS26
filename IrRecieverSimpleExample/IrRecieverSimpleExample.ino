@@ -4,7 +4,7 @@
 
 
 
-   Pin connections (Arduino Uno):
+   /*Pin connections (Arduino Uno):
 
     KY-022
     G-LEFT    Gnd (R1)
