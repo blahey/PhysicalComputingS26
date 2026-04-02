@@ -24,7 +24,7 @@
 
 
 #include "FastLED.h"            // Library for efficient LED control
-#define DATA_PIN    11          // MOSI (Serial Peripheral Interface (SPI) Output pin)
+#define DATA_PIN    11          // MOSI (Serial Peripheral Interface (SPI) Output pin) was 11
 #define CLOCK_PIN   13          // SCK (Serial Peripheral Interface (SPI) Clock pin)
 #define LED_TYPE    DOTSTAR     //APA 102-2020
 #define COLOR_ORDER BGR         // This order can vary between LED types 
@@ -42,7 +42,7 @@ CRGB leds[NUM_LEDS];            // Define the array of LEDs
 
 #include <AccelStepper.h>
 //AccelStepper myStepper(1, 15, 14);  // 1 sets the MotorInterfaceType to DRIVER; pin 15 = step; pin 14 = direction
-AccelStepper myStepper(4, 8, 10, 9, 11); // define motor pins (8, 10, 9, 11) and interface mode (4) ***ORDER OF THESE PINS MATTERS!***
+AccelStepper myStepper(4, 8, 10, 9, 7); // define motor pins (8, 10, 9, 11) and interface mode (4) ***ORDER OF THESE PINS MATTERS!***
 
 // const int ms1Pin = 20;          // define pins for stepping mode
 // const int ms2Pin = 19;          // stepping modes change the step resolution of the motor
@@ -89,10 +89,10 @@ void setup() {
 
 void loop() {  
   //simpleFillAll();
-  //simpleLedMotion();
+  simpleLedMotion();
   ledMotion01();
   //basicScript();
-  randomMotion01();
+  //randomMotion01();
   //randStepper();
   //angleInput();
   //stepsInput();

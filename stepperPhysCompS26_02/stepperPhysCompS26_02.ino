@@ -1,3 +1,5 @@
+
+
 // Stepper Configuration (Arduino Uno wiring)
 // Motor: 28BYJ-48 Stepper Motor  
 // Driver: ULN2003 Driver
@@ -15,7 +17,7 @@
 #include <AccelStepper.h>
 
 
-AccelStepper myStepper(4, 8, 10, 9, 11); // define motor pins (8, 10, 9, 11) and interface mode (4) ***ORDER OF THESE PINS MATTERS!***
+AccelStepper myStepper(4, 8, 10, 9, 7); // define motor pins (8, 10, 9, 11) and interface mode (4) ***ORDER OF THESE PINS MATTERS!***
 
 const int stepsPerRevolution = 2048;  
 
@@ -36,17 +38,17 @@ int dataNumber = 0;
 void setup() {
   Serial.begin(9600);
 
-  myStepper.setMaxSpeed(4000);     // steps per second
-  myStepper.setAcceleration(500);  // steps per second^2
+  myStepper.setMaxSpeed(800);     // steps per second
+  myStepper.setAcceleration(80);  // steps per second^2
   myStepper.setSpeed(100);
 
 }
 
 void loop() {
-  //randStepper();
-  variableStepper();
-  // angleInputNB();
-  // stepsInputNB();
+  randStepper();
+  //variableStepper();
+  //angleInputNB();
+  //stepsInputNB();
 }
 
 void randStepper() {
