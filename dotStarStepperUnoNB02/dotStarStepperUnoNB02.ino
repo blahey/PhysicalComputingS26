@@ -27,8 +27,8 @@ In addition, the gearbox inside the motor has a 64:1 gear reduction. This result
 //LED Configuration
 
 #include "FastLED.h"           // Library for efficient LED control
-#define DATA_PIN 11            // MOSI (Serial Peripheral Interface (SPI) Output pin)
-#define CLOCK_PIN 13           // SCK (Serial Peripheral Interface (SPI) Clock pin)
+#define DATA_PIN 11            // MOSI (Serial Peripheral Interface (SPI) Output pin) --- Use 51 for Mega
+#define CLOCK_PIN 13           // SCK (Serial Peripheral Interface (SPI) Clock pin) --- Use 52 for Mega
 #define LED_TYPE DOTSTAR       //APA 102-2020
 //#define LED_TYPE NEOPIXEL       //ws2812
 
